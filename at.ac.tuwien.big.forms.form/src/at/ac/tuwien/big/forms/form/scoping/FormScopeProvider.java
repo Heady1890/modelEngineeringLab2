@@ -12,10 +12,12 @@ import org.eclipse.xtext.scoping.Scopes;
 
 import at.ac.tuwien.big.forms.Attribute;
 import at.ac.tuwien.big.forms.AttributePageElement;
+import at.ac.tuwien.big.forms.Column;
 import at.ac.tuwien.big.forms.Entity;
 import at.ac.tuwien.big.forms.Form;
 import at.ac.tuwien.big.forms.Relationship;
 import at.ac.tuwien.big.forms.RelationshipPageElement;
+import at.ac.tuwien.big.forms.Table;
 
 
 /**
@@ -28,18 +30,31 @@ import at.ac.tuwien.big.forms.RelationshipPageElement;
 public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
 	
 	IScope scope_AttributePageElement_attribute(AttributePageElement ctx_attributePageElement, EReference ref) {
-		EList<Attribute> attributesInEntity = new BasicEList<Attribute>();
-		// traverse back to Form to get corresponding Entity (PageElement -> Page -> Form)
-		Form form = (Form) ctx_attributePageElement.eContainer().eContainer();
-		Entity entity = form.getEntity();
+		EList<Attribute> attributes = new BasicEList<Attribute>();
+		Entity entity = null;
 		
+		// Column
+		if (ctx_attributePageElement instanceof Column) {
+			// set the Entity as the target of the Relationship from the Table
+			Column column = (Column) ctx_attributePageElement;
+			Table table = (Table) column.eContainer();
+			Relationship relationship = table.getRelationship();
+			entity = relationship.getTarget();
+		// other AttributePageElements (TextField, TextArea, SelectionField, ...)
+		} else {		
+			// traverse back to Form to get corresponding Entity (PageElement -> Page -> Form)
+			Form form = (Form) ctx_attributePageElement.eContainer().eContainer();
+			entity = form.getEntity();			
+		}
+		
+		// filter out the all Attributes from the Entity's Features and its super Entities
 		while (entity != null) {
-			attributesInEntity.addAll(filter(entity.getFeatures(), Attribute.class));
+			attributes.addAll(filter(entity.getFeatures(), Attribute.class));
 			// look for super types
 			entity = entity.getSuperType();
 		}
 		
-		return Scopes.scopeFor(attributesInEntity);
+		return Scopes.scopeFor(attributes);
 	}
 	
 	IScope scope_RelationshipPageElement_relationship(RelationshipPageElement ctx_relationshipPageElement, EReference ref) {
@@ -48,6 +63,7 @@ public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 		Form form = (Form) ctx_relationshipPageElement.eContainer().eContainer();
 		Entity entity = form.getEntity();
 		
+		// filter out the all Relationships from the Entity's Features and its super Entities
 		while (entity != null) {
 			relationshipsInEntity.addAll(filter(entity.getFeatures(), Relationship.class));
 			// look for super types
@@ -55,24 +71,14 @@ public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 		}
 		
 		return Scopes.scopeFor(relationshipsInEntity);
-	}
+	}	
 	
-	/*IScope scope_Column_attribute(Column ctx_column, EReference ref) {
-		EList<Attribute> attributes = new BasicEList<Attribute>();
-		
-		Table table = (Table) ctx_column.eContainer();
-		Relationship relationship = table.getRelationship();
-		Entity targetEntity = relationship.getTarget();
-		
-		while (targetEntity != null) {
-			attributes.addAll(filter(targetEntity.getFeatures(), Attribute.class));
-			// look for super types
-			targetEntity = targetEntity.getSuperType();
-		}
-		
-		return Scopes.scopeFor(attributes);
-	}*/
-	
+	/**
+	 * Checks if the elements of the delivered list are from a certain EClass and return a list of them. 
+	 * @param list A EList containing extended types of EObjects
+	 * @param eClass A EClass which will be checked
+	 * @return A EList of the type eClass containing all eClass elements form list.
+	 */
 	@SuppressWarnings("unchecked")
 	private <T> EList<T> filter(EList<? extends EObject> list, Class<T> eClass) {
 		EList<T> elist = new BasicEList<T>();
