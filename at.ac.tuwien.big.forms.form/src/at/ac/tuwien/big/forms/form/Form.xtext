@@ -11,7 +11,7 @@ FormModel:
 ;
 
 Form:
-	(welcomeForm ?= 'welcome')? 'form' name = ID title = STRING 'handles' entity = [Entity] '{'
+	(welcomeForm ?= 'welcome')? 'form' name = ID title = STRING ('(' description = STRING ')')? 'handles' entity = [Entity] '{'
 		(pages += Page)*
 	'}'
 ;

@@ -45,20 +45,27 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Assignment cTitleAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTitleSTRINGTerminalRuleCall_3_0 = (RuleCall)cTitleAssignment_3.eContents().get(0);
-		private final Keyword cHandlesKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cEntityAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cEntityEntityCrossReference_5_0 = (CrossReference)cEntityAssignment_5.eContents().get(0);
-		private final RuleCall cEntityEntityIDTerminalRuleCall_5_0_1 = (RuleCall)cEntityEntityCrossReference_5_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cPagesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cPagesPageParserRuleCall_7_0 = (RuleCall)cPagesAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Keyword cHandlesKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cEntityAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cEntityEntityCrossReference_6_0 = (CrossReference)cEntityAssignment_6.eContents().get(0);
+		private final RuleCall cEntityEntityIDTerminalRuleCall_6_0_1 = (RuleCall)cEntityEntityCrossReference_6_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cPagesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cPagesPageParserRuleCall_8_0 = (RuleCall)cPagesAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Form:
-		//	welcomeForm?="welcome"? "form" name=ID title=STRING "handles" entity=[Entity] "{" pages+=Page* "}";
+		//	welcomeForm?="welcome"? "form" name=ID title=STRING ("(" description=STRING ")")? "handles" entity=[Entity] "{"
+		//	pages+=Page* "}";
 		public ParserRule getRule() { return rule; }
 
-		//welcomeForm?="welcome"? "form" name=ID title=STRING "handles" entity=[Entity] "{" pages+=Page* "}"
+		//welcomeForm?="welcome"? "form" name=ID title=STRING ("(" description=STRING ")")? "handles" entity=[Entity] "{"
+		//pages+=Page* "}"
 		public Group getGroup() { return cGroup; }
 
 		//welcomeForm?="welcome"?
@@ -82,29 +89,44 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getTitleSTRINGTerminalRuleCall_3_0() { return cTitleSTRINGTerminalRuleCall_3_0; }
 
+		//("(" description=STRING ")")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+
+		//description=STRING
+		public Assignment getDescriptionAssignment_4_1() { return cDescriptionAssignment_4_1; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_1_0() { return cDescriptionSTRINGTerminalRuleCall_4_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+
 		//"handles"
-		public Keyword getHandlesKeyword_4() { return cHandlesKeyword_4; }
+		public Keyword getHandlesKeyword_5() { return cHandlesKeyword_5; }
 
 		//entity=[Entity]
-		public Assignment getEntityAssignment_5() { return cEntityAssignment_5; }
+		public Assignment getEntityAssignment_6() { return cEntityAssignment_6; }
 
 		//[Entity]
-		public CrossReference getEntityEntityCrossReference_5_0() { return cEntityEntityCrossReference_5_0; }
+		public CrossReference getEntityEntityCrossReference_6_0() { return cEntityEntityCrossReference_6_0; }
 
 		//ID
-		public RuleCall getEntityEntityIDTerminalRuleCall_5_0_1() { return cEntityEntityIDTerminalRuleCall_5_0_1; }
+		public RuleCall getEntityEntityIDTerminalRuleCall_6_0_1() { return cEntityEntityIDTerminalRuleCall_6_0_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
+		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 
 		//pages+=Page*
-		public Assignment getPagesAssignment_7() { return cPagesAssignment_7; }
+		public Assignment getPagesAssignment_8() { return cPagesAssignment_8; }
 
 		//Page
-		public RuleCall getPagesPageParserRuleCall_7_0() { return cPagesPageParserRuleCall_7_0; }
+		public RuleCall getPagesPageParserRuleCall_8_0() { return cPagesPageParserRuleCall_8_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 
 	public class PageElements extends AbstractParserRuleElementFinder {
@@ -1049,7 +1071,8 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Form:
-	//	welcomeForm?="welcome"? "form" name=ID title=STRING "handles" entity=[Entity] "{" pages+=Page* "}";
+	//	welcomeForm?="welcome"? "form" name=ID title=STRING ("(" description=STRING ")")? "handles" entity=[Entity] "{"
+	//	pages+=Page* "}";
 	public FormElements getFormAccess() {
 		return pForm;
 	}

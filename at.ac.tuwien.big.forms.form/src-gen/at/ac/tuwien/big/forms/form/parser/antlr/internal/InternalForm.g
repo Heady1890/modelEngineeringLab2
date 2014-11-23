@@ -172,9 +172,35 @@ ruleForm returns [EObject current=null]
 	    }
 
 )
-)	otherlv_4='handles' 
+)(	otherlv_4='(' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getFormAccess().getHandlesKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getFormAccess().getLeftParenthesisKeyword_4_0());
+    }
+(
+(
+		lv_description_5_0=RULE_STRING
+		{
+			newLeafNode(lv_description_5_0, grammarAccess.getFormAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFormRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"description",
+        		lv_description_5_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_6=')' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getFormAccess().getRightParenthesisKeyword_4_2());
+    }
+)?	otherlv_7='handles' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getFormAccess().getHandlesKeyword_5());
     }
 (
 (
@@ -183,37 +209,37 @@ ruleForm returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getFormRule());
 	        }
         }
-	otherlv_5=RULE_ID
+	otherlv_8=RULE_ID
 	{
-		newLeafNode(otherlv_5, grammarAccess.getFormAccess().getEntityEntityCrossReference_5_0()); 
+		newLeafNode(otherlv_8, grammarAccess.getFormAccess().getEntityEntityCrossReference_6_0()); 
 	}
 
 )
-)	otherlv_6='{' 
+)	otherlv_9='{' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getFormAccess().getLeftCurlyBracketKeyword_6());
+    	newLeafNode(otherlv_9, grammarAccess.getFormAccess().getLeftCurlyBracketKeyword_7());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFormAccess().getPagesPageParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getFormAccess().getPagesPageParserRuleCall_8_0()); 
 	    }
-		lv_pages_7_0=rulePage		{
+		lv_pages_10_0=rulePage		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFormRule());
 	        }
        		add(
        			$current, 
        			"pages",
-        		lv_pages_7_0, 
+        		lv_pages_10_0, 
         		"Page");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_8='}' 
+)*	otherlv_11='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getFormAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_11, grammarAccess.getFormAccess().getRightCurlyBracketKeyword_9());
     }
 )
 ;

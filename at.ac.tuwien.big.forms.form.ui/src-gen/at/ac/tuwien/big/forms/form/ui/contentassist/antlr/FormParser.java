@@ -44,6 +44,7 @@ public class FormParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionTypeAccess().getAlternatives(), "rule__ConditionType__Alternatives");
 					put(grammarAccess.getCompositeConditionTypeAccess().getAlternatives(), "rule__CompositeConditionType__Alternatives");
 					put(grammarAccess.getFormAccess().getGroup(), "rule__Form__Group__0");
+					put(grammarAccess.getFormAccess().getGroup_4(), "rule__Form__Group_4__0");
 					put(grammarAccess.getPageAccess().getGroup(), "rule__Page__Group__0");
 					put(grammarAccess.getPageAccess().getGroup_3(), "rule__Page__Group_3__0");
 					put(grammarAccess.getPageAccess().getGroup_3_1(), "rule__Page__Group_3_1__0");
@@ -71,8 +72,9 @@ public class FormParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFormAccess().getWelcomeFormAssignment_0(), "rule__Form__WelcomeFormAssignment_0");
 					put(grammarAccess.getFormAccess().getNameAssignment_2(), "rule__Form__NameAssignment_2");
 					put(grammarAccess.getFormAccess().getTitleAssignment_3(), "rule__Form__TitleAssignment_3");
-					put(grammarAccess.getFormAccess().getEntityAssignment_5(), "rule__Form__EntityAssignment_5");
-					put(grammarAccess.getFormAccess().getPagesAssignment_7(), "rule__Form__PagesAssignment_7");
+					put(grammarAccess.getFormAccess().getDescriptionAssignment_4_1(), "rule__Form__DescriptionAssignment_4_1");
+					put(grammarAccess.getFormAccess().getEntityAssignment_6(), "rule__Form__EntityAssignment_6");
+					put(grammarAccess.getFormAccess().getPagesAssignment_8(), "rule__Form__PagesAssignment_8");
 					put(grammarAccess.getPageAccess().getTitleAssignment_1(), "rule__Page__TitleAssignment_1");
 					put(grammarAccess.getPageAccess().getPageElementsAssignment_3_0(), "rule__Page__PageElementsAssignment_3_0");
 					put(grammarAccess.getPageAccess().getPageElementsAssignment_3_1_1(), "rule__Page__PageElementsAssignment_3_1_1");

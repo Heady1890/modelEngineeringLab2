@@ -336,7 +336,14 @@ public abstract class AbstractFormSemanticSequencer extends AbstractDelegatingSe
 	
 	/**
 	 * Constraint:
-	 *     (welcomeForm?='welcome'? name=ID title=STRING entity=[Entity|ID] pages+=Page*)
+	 *     (
+	 *         welcomeForm?='welcome'? 
+	 *         name=ID 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         entity=[Entity|ID] 
+	 *         pages+=Page*
+	 *     )
 	 */
 	protected void sequence_Form(EObject context, Form semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
