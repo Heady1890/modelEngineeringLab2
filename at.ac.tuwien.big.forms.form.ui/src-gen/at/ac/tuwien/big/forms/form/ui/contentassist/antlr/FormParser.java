@@ -41,7 +41,6 @@ public class FormParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRelationshipPageElementAccess().getAlternatives_0(), "rule__RelationshipPageElement__Alternatives_0");
 					put(grammarAccess.getAttributePageElementAccess().getAlternatives_0(), "rule__AttributePageElement__Alternatives_0");
 					put(grammarAccess.getConditionAccess().getAlternatives_1(), "rule__Condition__Alternatives_1");
-					put(grammarAccess.getConditionConnectorAccess().getAlternatives(), "rule__ConditionConnector__Alternatives");
 					put(grammarAccess.getConditionTypeAccess().getAlternatives(), "rule__ConditionType__Alternatives");
 					put(grammarAccess.getCompositeConditionTypeAccess().getAlternatives(), "rule__CompositeConditionType__Alternatives");
 					put(grammarAccess.getFormAccess().getGroup(), "rule__Form__Group__0");
@@ -77,7 +76,7 @@ public class FormParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPageAccess().getTitleAssignment_1(), "rule__Page__TitleAssignment_1");
 					put(grammarAccess.getPageAccess().getPageElementsAssignment_3_0(), "rule__Page__PageElementsAssignment_3_0");
 					put(grammarAccess.getPageAccess().getPageElementsAssignment_3_1_1(), "rule__Page__PageElementsAssignment_3_1_1");
-					put(grammarAccess.getPageAccess().getConditionAssignment_4(), "rule__Page__ConditionAssignment_4");
+					put(grammarAccess.getPageAccess().getConditionAssignment_5(), "rule__Page__ConditionAssignment_5");
 					put(grammarAccess.getPageElementAccess().getConditionAssignment_1(), "rule__PageElement__ConditionAssignment_1");
 					put(grammarAccess.getRelationshipPageElementAccess().getEditingFormAssignment_2(), "rule__RelationshipPageElement__EditingFormAssignment_2");
 					put(grammarAccess.getTableAccess().getElementIDAssignment_1(), "rule__Table__ElementIDAssignment_1");
@@ -108,8 +107,10 @@ public class FormParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeValueConditionAccess().getValueAssignment_5(), "rule__AttributeValueCondition__ValueAssignment_5");
 					put(grammarAccess.getAttributeValueConditionAccess().getTypeAssignment_7(), "rule__AttributeValueCondition__TypeAssignment_7");
 					put(grammarAccess.getCompositeConditionAccess().getConditionIDAssignment_1(), "rule__CompositeCondition__ConditionIDAssignment_1");
-					put(grammarAccess.getCompositeConditionAccess().getCompositionTypeAssignment_4(), "rule__CompositeCondition__CompositionTypeAssignment_4");
-					put(grammarAccess.getCompositeConditionAccess().getTypeAssignment_6(), "rule__CompositeCondition__TypeAssignment_6");
+					put(grammarAccess.getCompositeConditionAccess().getComposedConditionsAssignment_4(), "rule__CompositeCondition__ComposedConditionsAssignment_4");
+					put(grammarAccess.getCompositeConditionAccess().getCompositionTypeAssignment_5(), "rule__CompositeCondition__CompositionTypeAssignment_5");
+					put(grammarAccess.getCompositeConditionAccess().getComposedConditionsAssignment_6(), "rule__CompositeCondition__ComposedConditionsAssignment_6");
+					put(grammarAccess.getCompositeConditionAccess().getTypeAssignment_9(), "rule__CompositeCondition__TypeAssignment_9");
 				}
 			};
 		}

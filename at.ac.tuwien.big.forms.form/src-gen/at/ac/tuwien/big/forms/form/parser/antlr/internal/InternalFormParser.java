@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalFormParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'welcome'", "'form'", "'handles'", "'{'", "'}'", "'page'", "','", "'edits'", "'table'", "'column'", "'list'", "'text-field'", "'format'", "'text-area'", "'selection-field'", "'date-selection-field'", "'time-selection-field'", "'with'", "'attribute-condition'", "':'", "'=='", "'?'", "'composite-condition'", "'('", "')'", "'Show'", "'Hide'", "'Disable'", "'Enable'", "'None'", "'Or'", "'And'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'welcome'", "'form'", "'handles'", "'{'", "'}'", "'page'", "','", "'edits'", "'table'", "'column'", "'list'", "'text-field'", "'format'", "'text-area'", "'selection-field'", "'date-selection-field'", "'time-selection-field'", "'with'", "'attribute-condition'", "':'", "'=='", "'?'", "'composite-condition'", "'('", "')'", "'Show'", "'Hide'", "'Disable'", "'Enable'", "'None'", "'or'", "'and'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -508,7 +508,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePage"
-    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:235:1: rulePage returns [EObject current=null] : (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? ( (lv_condition_6_0= ruleCondition ) )? otherlv_7= '}' ) ;
+    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:235:1: rulePage returns [EObject current=null] : (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? otherlv_6= '}' ( (lv_condition_7_0= ruleCondition ) )? ) ;
     public final EObject rulePage() throws RecognitionException {
         EObject current = null;
 
@@ -516,22 +516,22 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
         Token lv_title_1_0=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
-        Token otherlv_7=null;
+        Token otherlv_6=null;
         EObject lv_pageElements_3_0 = null;
 
         EObject lv_pageElements_5_0 = null;
 
-        EObject lv_condition_6_0 = null;
+        EObject lv_condition_7_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:238:28: ( (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? ( (lv_condition_6_0= ruleCondition ) )? otherlv_7= '}' ) )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:239:1: (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? ( (lv_condition_6_0= ruleCondition ) )? otherlv_7= '}' )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:238:28: ( (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? otherlv_6= '}' ( (lv_condition_7_0= ruleCondition ) )? ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:239:1: (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? otherlv_6= '}' ( (lv_condition_7_0= ruleCondition ) )? )
             {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:239:1: (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? ( (lv_condition_6_0= ruleCondition ) )? otherlv_7= '}' )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:239:3: otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? ( (lv_condition_6_0= ruleCondition ) )? otherlv_7= '}'
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:239:1: (otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? otherlv_6= '}' ( (lv_condition_7_0= ruleCondition ) )? )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:239:3: otherlv_0= 'page' ( (lv_title_1_0= RULE_STRING ) ) otherlv_2= '{' ( ( (lv_pageElements_3_0= rulePageElement ) ) (otherlv_4= ',' ( (lv_pageElements_5_0= rulePageElement ) ) )* )? otherlv_6= '}' ( (lv_condition_7_0= ruleCondition ) )?
             {
             otherlv_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_rulePage450); 
 
@@ -674,7 +674,11 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:305:6: ( (lv_condition_6_0= ruleCondition ) )?
+            otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_rulePage556); 
+
+                	newLeafNode(otherlv_6, grammarAccess.getPageAccess().getRightCurlyBracketKeyword_4());
+                
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:309:1: ( (lv_condition_7_0= ruleCondition ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -683,16 +687,16 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:306:1: (lv_condition_6_0= ruleCondition )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:310:1: (lv_condition_7_0= ruleCondition )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:306:1: (lv_condition_6_0= ruleCondition )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:307:3: lv_condition_6_0= ruleCondition
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:310:1: (lv_condition_7_0= ruleCondition )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:311:3: lv_condition_7_0= ruleCondition
                     {
                      
-                    	        newCompositeNode(grammarAccess.getPageAccess().getConditionConditionParserRuleCall_4_0()); 
+                    	        newCompositeNode(grammarAccess.getPageAccess().getConditionConditionParserRuleCall_5_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleCondition_in_rulePage565);
-                    lv_condition_6_0=ruleCondition();
+                    pushFollow(FollowSets000.FOLLOW_ruleCondition_in_rulePage577);
+                    lv_condition_7_0=ruleCondition();
 
                     state._fsp--;
 
@@ -703,7 +707,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"condition",
-                            		lv_condition_6_0, 
+                            		lv_condition_7_0, 
                             		"Condition");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -716,10 +720,6 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,15,FollowSets000.FOLLOW_15_in_rulePage578); 
-
-                	newLeafNode(otherlv_7, grammarAccess.getPageAccess().getRightCurlyBracketKeyword_5());
-                
 
             }
 
@@ -855,7 +855,11 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
             // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:367:2: ( (lv_condition_2_0= ruleCondition ) )?
             int alt8=2;
-            alt8 = dfa8.predict(input);
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==28) ) {
+                alt8=1;
+            }
             switch (alt8) {
                 case 1 :
                     // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:368:1: (lv_condition_2_0= ruleCondition )
@@ -2971,7 +2975,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompositeCondition"
-    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1303:1: ruleCompositeCondition returns [EObject current=null] : (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_compositionType_4_0= ruleCompositeConditionType ) ) otherlv_5= '?' ( (lv_type_6_0= ruleConditionType ) ) otherlv_7= ')' ) ;
+    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1303:1: ruleCompositeCondition returns [EObject current=null] : (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_composedConditions_4_0= ruleAttributeValueCondition ) ) ( (lv_compositionType_5_0= ruleCompositeConditionType ) ) ( (lv_composedConditions_6_0= ruleAttributeValueCondition ) ) otherlv_7= ')' otherlv_8= '?' ( (lv_type_9_0= ruleConditionType ) ) ) ;
     public final EObject ruleCompositeCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2979,21 +2983,25 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
         Token lv_conditionID_1_0=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        Token otherlv_5=null;
         Token otherlv_7=null;
-        Enumerator lv_compositionType_4_0 = null;
+        Token otherlv_8=null;
+        EObject lv_composedConditions_4_0 = null;
 
-        Enumerator lv_type_6_0 = null;
+        Enumerator lv_compositionType_5_0 = null;
+
+        EObject lv_composedConditions_6_0 = null;
+
+        Enumerator lv_type_9_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1306:28: ( (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_compositionType_4_0= ruleCompositeConditionType ) ) otherlv_5= '?' ( (lv_type_6_0= ruleConditionType ) ) otherlv_7= ')' ) )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1307:1: (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_compositionType_4_0= ruleCompositeConditionType ) ) otherlv_5= '?' ( (lv_type_6_0= ruleConditionType ) ) otherlv_7= ')' )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1306:28: ( (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_composedConditions_4_0= ruleAttributeValueCondition ) ) ( (lv_compositionType_5_0= ruleCompositeConditionType ) ) ( (lv_composedConditions_6_0= ruleAttributeValueCondition ) ) otherlv_7= ')' otherlv_8= '?' ( (lv_type_9_0= ruleConditionType ) ) ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1307:1: (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_composedConditions_4_0= ruleAttributeValueCondition ) ) ( (lv_compositionType_5_0= ruleCompositeConditionType ) ) ( (lv_composedConditions_6_0= ruleAttributeValueCondition ) ) otherlv_7= ')' otherlv_8= '?' ( (lv_type_9_0= ruleConditionType ) ) )
             {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1307:1: (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_compositionType_4_0= ruleCompositeConditionType ) ) otherlv_5= '?' ( (lv_type_6_0= ruleConditionType ) ) otherlv_7= ')' )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1307:3: otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_compositionType_4_0= ruleCompositeConditionType ) ) otherlv_5= '?' ( (lv_type_6_0= ruleConditionType ) ) otherlv_7= ')'
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1307:1: (otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_composedConditions_4_0= ruleAttributeValueCondition ) ) ( (lv_compositionType_5_0= ruleCompositeConditionType ) ) ( (lv_composedConditions_6_0= ruleAttributeValueCondition ) ) otherlv_7= ')' otherlv_8= '?' ( (lv_type_9_0= ruleConditionType ) ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1307:3: otherlv_0= 'composite-condition' ( (lv_conditionID_1_0= RULE_ID ) ) otherlv_2= ':' otherlv_3= '(' ( (lv_composedConditions_4_0= ruleAttributeValueCondition ) ) ( (lv_compositionType_5_0= ruleCompositeConditionType ) ) ( (lv_composedConditions_6_0= ruleAttributeValueCondition ) ) otherlv_7= ')' otherlv_8= '?' ( (lv_type_9_0= ruleConditionType ) )
             {
             otherlv_0=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleCompositeCondition2761); 
 
@@ -3033,17 +3041,48 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_3, grammarAccess.getCompositeConditionAccess().getLeftParenthesisKeyword_3());
                 
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1337:1: ( (lv_compositionType_4_0= ruleCompositeConditionType ) )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1338:1: (lv_compositionType_4_0= ruleCompositeConditionType )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1337:1: ( (lv_composedConditions_4_0= ruleAttributeValueCondition ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1338:1: (lv_composedConditions_4_0= ruleAttributeValueCondition )
             {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1338:1: (lv_compositionType_4_0= ruleCompositeConditionType )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1339:3: lv_compositionType_4_0= ruleCompositeConditionType
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1338:1: (lv_composedConditions_4_0= ruleAttributeValueCondition )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1339:3: lv_composedConditions_4_0= ruleAttributeValueCondition
             {
              
-            	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getCompositionTypeCompositeConditionTypeEnumRuleCall_4_0()); 
+            	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getComposedConditionsAttributeValueConditionParserRuleCall_4_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleCompositeConditionType_in_ruleCompositeCondition2828);
-            lv_compositionType_4_0=ruleCompositeConditionType();
+            pushFollow(FollowSets000.FOLLOW_ruleAttributeValueCondition_in_ruleCompositeCondition2828);
+            lv_composedConditions_4_0=ruleAttributeValueCondition();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getCompositeConditionRule());
+            	        }
+                   		add(
+                   			current, 
+                   			"composedConditions",
+                    		lv_composedConditions_4_0, 
+                    		"AttributeValueCondition");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1355:2: ( (lv_compositionType_5_0= ruleCompositeConditionType ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1356:1: (lv_compositionType_5_0= ruleCompositeConditionType )
+            {
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1356:1: (lv_compositionType_5_0= ruleCompositeConditionType )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1357:3: lv_compositionType_5_0= ruleCompositeConditionType
+            {
+             
+            	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getCompositionTypeCompositeConditionTypeEnumRuleCall_5_0()); 
+            	    
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeConditionType_in_ruleCompositeCondition2849);
+            lv_compositionType_5_0=ruleCompositeConditionType();
 
             state._fsp--;
 
@@ -3054,7 +3093,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"compositionType",
-                    		lv_compositionType_4_0, 
+                    		lv_compositionType_5_0, 
                     		"CompositeConditionType");
             	        afterParserOrEnumRuleCall();
             	    
@@ -3064,21 +3103,56 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleCompositeCondition2840); 
-
-                	newLeafNode(otherlv_5, grammarAccess.getCompositeConditionAccess().getQuestionMarkKeyword_5());
-                
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1359:1: ( (lv_type_6_0= ruleConditionType ) )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1360:1: (lv_type_6_0= ruleConditionType )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1373:2: ( (lv_composedConditions_6_0= ruleAttributeValueCondition ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1374:1: (lv_composedConditions_6_0= ruleAttributeValueCondition )
             {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1360:1: (lv_type_6_0= ruleConditionType )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1361:3: lv_type_6_0= ruleConditionType
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1374:1: (lv_composedConditions_6_0= ruleAttributeValueCondition )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1375:3: lv_composedConditions_6_0= ruleAttributeValueCondition
             {
              
-            	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getTypeConditionTypeEnumRuleCall_6_0()); 
+            	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getComposedConditionsAttributeValueConditionParserRuleCall_6_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleConditionType_in_ruleCompositeCondition2861);
-            lv_type_6_0=ruleConditionType();
+            pushFollow(FollowSets000.FOLLOW_ruleAttributeValueCondition_in_ruleCompositeCondition2870);
+            lv_composedConditions_6_0=ruleAttributeValueCondition();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getCompositeConditionRule());
+            	        }
+                   		add(
+                   			current, 
+                   			"composedConditions",
+                    		lv_composedConditions_6_0, 
+                    		"AttributeValueCondition");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+            otherlv_7=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleCompositeCondition2882); 
+
+                	newLeafNode(otherlv_7, grammarAccess.getCompositeConditionAccess().getRightParenthesisKeyword_7());
+                
+            otherlv_8=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleCompositeCondition2894); 
+
+                	newLeafNode(otherlv_8, grammarAccess.getCompositeConditionAccess().getQuestionMarkKeyword_8());
+                
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1399:1: ( (lv_type_9_0= ruleConditionType ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1400:1: (lv_type_9_0= ruleConditionType )
+            {
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1400:1: (lv_type_9_0= ruleConditionType )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1401:3: lv_type_9_0= ruleConditionType
+            {
+             
+            	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getTypeConditionTypeEnumRuleCall_9_0()); 
+            	    
+            pushFollow(FollowSets000.FOLLOW_ruleConditionType_in_ruleCompositeCondition2915);
+            lv_type_9_0=ruleConditionType();
 
             state._fsp--;
 
@@ -3089,7 +3163,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"type",
-                    		lv_type_6_0, 
+                    		lv_type_9_0, 
                     		"ConditionType");
             	        afterParserOrEnumRuleCall();
             	    
@@ -3099,10 +3173,6 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleCompositeCondition2873); 
-
-                	newLeafNode(otherlv_7, grammarAccess.getCompositeConditionAccess().getRightParenthesisKeyword_7());
-                
 
             }
 
@@ -3124,7 +3194,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConditionType"
-    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1395:1: ruleConditionType returns [Enumerator current=null] : ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) ) ;
+    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1429:1: ruleConditionType returns [Enumerator current=null] : ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) ) ;
     public final Enumerator ruleConditionType() throws RecognitionException {
         Enumerator current = null;
 
@@ -3136,10 +3206,10 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1397:28: ( ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) ) )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1398:1: ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1431:28: ( ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1432:1: ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) )
             {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1398:1: ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1432:1: ( (enumLiteral_0= 'Show' ) | (enumLiteral_1= 'Hide' ) | (enumLiteral_2= 'Disable' ) | (enumLiteral_3= 'Enable' ) | (enumLiteral_4= 'None' ) )
             int alt15=5;
             switch ( input.LA(1) ) {
             case 36:
@@ -3176,12 +3246,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
             switch (alt15) {
                 case 1 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1398:2: (enumLiteral_0= 'Show' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1432:2: (enumLiteral_0= 'Show' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1398:2: (enumLiteral_0= 'Show' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1398:4: enumLiteral_0= 'Show'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1432:2: (enumLiteral_0= 'Show' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1432:4: enumLiteral_0= 'Show'
                     {
-                    enumLiteral_0=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleConditionType2929); 
+                    enumLiteral_0=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleConditionType2969); 
 
                             current = grammarAccess.getConditionTypeAccess().getShowEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getConditionTypeAccess().getShowEnumLiteralDeclaration_0()); 
@@ -3193,12 +3263,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1404:6: (enumLiteral_1= 'Hide' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1438:6: (enumLiteral_1= 'Hide' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1404:6: (enumLiteral_1= 'Hide' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1404:8: enumLiteral_1= 'Hide'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1438:6: (enumLiteral_1= 'Hide' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1438:8: enumLiteral_1= 'Hide'
                     {
-                    enumLiteral_1=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleConditionType2946); 
+                    enumLiteral_1=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleConditionType2986); 
 
                             current = grammarAccess.getConditionTypeAccess().getHideEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getConditionTypeAccess().getHideEnumLiteralDeclaration_1()); 
@@ -3210,12 +3280,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1410:6: (enumLiteral_2= 'Disable' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1444:6: (enumLiteral_2= 'Disable' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1410:6: (enumLiteral_2= 'Disable' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1410:8: enumLiteral_2= 'Disable'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1444:6: (enumLiteral_2= 'Disable' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1444:8: enumLiteral_2= 'Disable'
                     {
-                    enumLiteral_2=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleConditionType2963); 
+                    enumLiteral_2=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleConditionType3003); 
 
                             current = grammarAccess.getConditionTypeAccess().getDisableEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getConditionTypeAccess().getDisableEnumLiteralDeclaration_2()); 
@@ -3227,12 +3297,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1416:6: (enumLiteral_3= 'Enable' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1450:6: (enumLiteral_3= 'Enable' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1416:6: (enumLiteral_3= 'Enable' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1416:8: enumLiteral_3= 'Enable'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1450:6: (enumLiteral_3= 'Enable' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1450:8: enumLiteral_3= 'Enable'
                     {
-                    enumLiteral_3=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleConditionType2980); 
+                    enumLiteral_3=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleConditionType3020); 
 
                             current = grammarAccess.getConditionTypeAccess().getEnableEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getConditionTypeAccess().getEnableEnumLiteralDeclaration_3()); 
@@ -3244,12 +3314,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1422:6: (enumLiteral_4= 'None' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1456:6: (enumLiteral_4= 'None' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1422:6: (enumLiteral_4= 'None' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1422:8: enumLiteral_4= 'None'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1456:6: (enumLiteral_4= 'None' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1456:8: enumLiteral_4= 'None'
                     {
-                    enumLiteral_4=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleConditionType2997); 
+                    enumLiteral_4=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleConditionType3037); 
 
                             current = grammarAccess.getConditionTypeAccess().getNoneEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getConditionTypeAccess().getNoneEnumLiteralDeclaration_4()); 
@@ -3281,7 +3351,7 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompositeConditionType"
-    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1432:1: ruleCompositeConditionType returns [Enumerator current=null] : ( (enumLiteral_0= 'Or' ) | (enumLiteral_1= 'And' ) ) ;
+    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1466:1: ruleCompositeConditionType returns [Enumerator current=null] : ( (enumLiteral_0= 'or' ) | (enumLiteral_1= 'and' ) ) ;
     public final Enumerator ruleCompositeConditionType() throws RecognitionException {
         Enumerator current = null;
 
@@ -3290,10 +3360,10 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1434:28: ( ( (enumLiteral_0= 'Or' ) | (enumLiteral_1= 'And' ) ) )
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1435:1: ( (enumLiteral_0= 'Or' ) | (enumLiteral_1= 'And' ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1468:28: ( ( (enumLiteral_0= 'or' ) | (enumLiteral_1= 'and' ) ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1469:1: ( (enumLiteral_0= 'or' ) | (enumLiteral_1= 'and' ) )
             {
-            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1435:1: ( (enumLiteral_0= 'Or' ) | (enumLiteral_1= 'And' ) )
+            // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1469:1: ( (enumLiteral_0= 'or' ) | (enumLiteral_1= 'and' ) )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -3311,12 +3381,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1435:2: (enumLiteral_0= 'Or' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1469:2: (enumLiteral_0= 'or' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1435:2: (enumLiteral_0= 'Or' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1435:4: enumLiteral_0= 'Or'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1469:2: (enumLiteral_0= 'or' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1469:4: enumLiteral_0= 'or'
                     {
-                    enumLiteral_0=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleCompositeConditionType3042); 
+                    enumLiteral_0=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleCompositeConditionType3082); 
 
                             current = grammarAccess.getCompositeConditionTypeAccess().getOrEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getCompositeConditionTypeAccess().getOrEnumLiteralDeclaration_0()); 
@@ -3328,12 +3398,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1441:6: (enumLiteral_1= 'And' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1475:6: (enumLiteral_1= 'and' )
                     {
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1441:6: (enumLiteral_1= 'And' )
-                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1441:8: enumLiteral_1= 'And'
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1475:6: (enumLiteral_1= 'and' )
+                    // ../at.ac.tuwien.big.forms.form/src-gen/at/ac/tuwien/big/forms/form/parser/antlr/internal/InternalForm.g:1475:8: enumLiteral_1= 'and'
                     {
-                    enumLiteral_1=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleCompositeConditionType3059); 
+                    enumLiteral_1=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleCompositeConditionType3099); 
 
                             current = grammarAccess.getCompositeConditionTypeAccess().getAndEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getCompositeConditionTypeAccess().getAndEnumLiteralDeclaration_1()); 
@@ -3366,83 +3436,6 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
-    protected DFA8 dfa8 = new DFA8(this);
-    static final String DFA8_eotS =
-        "\34\uffff";
-    static final String DFA8_eofS =
-        "\1\2\33\uffff";
-    static final String DFA8_minS =
-        "\1\17\1\35\1\uffff\2\4\2\36\1\4\1\42\1\37\1\51\1\5\3\40\2\44\5\43\6\uffff";
-    static final String DFA8_maxS =
-        "\1\34\1\41\1\uffff\2\4\2\36\1\4\1\42\1\37\1\52\1\5\3\40\2\50\5\43\6\uffff";
-    static final String DFA8_acceptS =
-        "\2\uffff\1\2\23\uffff\6\1";
-    static final String DFA8_specialS =
-        "\34\uffff}>";
-    static final String[] DFA8_transitionS = {
-            "\1\2\1\uffff\1\2\12\uffff\1\1",
-            "\1\3\3\uffff\1\4",
-            "",
-            "\1\5",
-            "\1\6",
-            "\1\7",
-            "\1\10",
-            "\1\11",
-            "\1\12",
-            "\1\13",
-            "\1\14\1\15",
-            "\1\16",
-            "\1\17",
-            "\1\17",
-            "\1\20",
-            "\1\21\1\22\1\23\1\24\1\25",
-            "\1\26\1\27\1\30\1\31\1\32",
-            "\1\33",
-            "\1\33",
-            "\1\33",
-            "\1\33",
-            "\1\33",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] DFA8_eot = DFA.unpackEncodedString(DFA8_eotS);
-    static final short[] DFA8_eof = DFA.unpackEncodedString(DFA8_eofS);
-    static final char[] DFA8_min = DFA.unpackEncodedStringToUnsignedChars(DFA8_minS);
-    static final char[] DFA8_max = DFA.unpackEncodedStringToUnsignedChars(DFA8_maxS);
-    static final short[] DFA8_accept = DFA.unpackEncodedString(DFA8_acceptS);
-    static final short[] DFA8_special = DFA.unpackEncodedString(DFA8_specialS);
-    static final short[][] DFA8_transition;
-
-    static {
-        int numStates = DFA8_transitionS.length;
-        DFA8_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA8_transition[i] = DFA.unpackEncodedString(DFA8_transitionS[i]);
-        }
-    }
-
-    class DFA8 extends DFA {
-
-        public DFA8(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 8;
-            this.eot = DFA8_eot;
-            this.eof = DFA8_eof;
-            this.min = DFA8_min;
-            this.max = DFA8_max;
-            this.accept = DFA8_accept;
-            this.special = DFA8_special;
-            this.transition = DFA8_transition;
-        }
-        public String getDescription() {
-            return "367:2: ( (lv_condition_2_0= ruleCondition ) )?";
-        }
-    }
  
 
     
@@ -3465,12 +3458,12 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_EOF_in_entryRulePage413 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_16_in_rulePage450 = new BitSet(new long[]{0x0000000000000020L});
         public static final BitSet FOLLOW_RULE_STRING_in_rulePage467 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_rulePage484 = new BitSet(new long[]{0x000000001F688000L});
-        public static final BitSet FOLLOW_rulePageElement_in_rulePage506 = new BitSet(new long[]{0x0000000010028000L});
+        public static final BitSet FOLLOW_14_in_rulePage484 = new BitSet(new long[]{0x000000000F688000L});
+        public static final BitSet FOLLOW_rulePageElement_in_rulePage506 = new BitSet(new long[]{0x0000000000028000L});
         public static final BitSet FOLLOW_17_in_rulePage519 = new BitSet(new long[]{0x000000000F680000L});
-        public static final BitSet FOLLOW_rulePageElement_in_rulePage540 = new BitSet(new long[]{0x0000000010028000L});
-        public static final BitSet FOLLOW_ruleCondition_in_rulePage565 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_rulePage578 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePageElement_in_rulePage540 = new BitSet(new long[]{0x0000000000028000L});
+        public static final BitSet FOLLOW_15_in_rulePage556 = new BitSet(new long[]{0x0000000010000002L});
+        public static final BitSet FOLLOW_ruleCondition_in_rulePage577 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rulePageElement_in_entryRulePageElement614 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRulePageElement624 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleRelationshipPageElement_in_rulePageElement672 = new BitSet(new long[]{0x0000000010000002L});
@@ -3564,18 +3557,20 @@ public class InternalFormParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_33_in_ruleCompositeCondition2761 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_RULE_ID_in_ruleCompositeCondition2778 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_ruleCompositeCondition2795 = new BitSet(new long[]{0x0000000400000000L});
-        public static final BitSet FOLLOW_34_in_ruleCompositeCondition2807 = new BitSet(new long[]{0x0000060000000000L});
-        public static final BitSet FOLLOW_ruleCompositeConditionType_in_ruleCompositeCondition2828 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleCompositeCondition2840 = new BitSet(new long[]{0x000001F000000000L});
-        public static final BitSet FOLLOW_ruleConditionType_in_ruleCompositeCondition2861 = new BitSet(new long[]{0x0000000800000000L});
-        public static final BitSet FOLLOW_35_in_ruleCompositeCondition2873 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_36_in_ruleConditionType2929 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_37_in_ruleConditionType2946 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_38_in_ruleConditionType2963 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_ruleConditionType2980 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_40_in_ruleConditionType2997 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_41_in_ruleCompositeConditionType3042 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_42_in_ruleCompositeConditionType3059 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_34_in_ruleCompositeCondition2807 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_ruleAttributeValueCondition_in_ruleCompositeCondition2828 = new BitSet(new long[]{0x0000060000000000L});
+        public static final BitSet FOLLOW_ruleCompositeConditionType_in_ruleCompositeCondition2849 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_ruleAttributeValueCondition_in_ruleCompositeCondition2870 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_35_in_ruleCompositeCondition2882 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_ruleCompositeCondition2894 = new BitSet(new long[]{0x000001F000000000L});
+        public static final BitSet FOLLOW_ruleConditionType_in_ruleCompositeCondition2915 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_36_in_ruleConditionType2969 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_37_in_ruleConditionType2986 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_38_in_ruleConditionType3003 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_39_in_ruleConditionType3020 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_40_in_ruleConditionType3037 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_ruleCompositeConditionType3082 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_42_in_ruleCompositeConditionType3099 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

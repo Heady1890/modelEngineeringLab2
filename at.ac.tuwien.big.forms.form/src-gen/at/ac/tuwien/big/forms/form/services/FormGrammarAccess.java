@@ -121,15 +121,15 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
 		private final Assignment cPageElementsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
 		private final RuleCall cPageElementsPageElementParserRuleCall_3_1_1_0 = (RuleCall)cPageElementsAssignment_3_1_1.eContents().get(0);
-		private final Assignment cConditionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cConditionConditionParserRuleCall_4_0 = (RuleCall)cConditionAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cConditionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cConditionConditionParserRuleCall_5_0 = (RuleCall)cConditionAssignment_5.eContents().get(0);
 		
 		//Page:
-		//	"page" title=STRING "{" (pageElements+=PageElement ("," pageElements+=PageElement)*)? condition=Condition? "}";
+		//	"page" title=STRING "{" (pageElements+=PageElement ("," pageElements+=PageElement)*)? "}" condition=Condition?;
 		public ParserRule getRule() { return rule; }
 
-		//"page" title=STRING "{" (pageElements+=PageElement ("," pageElements+=PageElement)*)? condition=Condition? "}"
+		//"page" title=STRING "{" (pageElements+=PageElement ("," pageElements+=PageElement)*)? "}" condition=Condition?
 		public Group getGroup() { return cGroup; }
 
 		//"page"
@@ -165,14 +165,14 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		//PageElement
 		public RuleCall getPageElementsPageElementParserRuleCall_3_1_1_0() { return cPageElementsPageElementParserRuleCall_3_1_1_0; }
 
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+
 		//condition=Condition?
-		public Assignment getConditionAssignment_4() { return cConditionAssignment_4; }
+		public Assignment getConditionAssignment_5() { return cConditionAssignment_5; }
 
 		//Condition
-		public RuleCall getConditionConditionParserRuleCall_4_0() { return cConditionConditionParserRuleCall_4_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public RuleCall getConditionConditionParserRuleCall_5_0() { return cConditionConditionParserRuleCall_5_0; }
 	}
 
 	public class PageElementElements extends AbstractParserRuleElementFinder {
@@ -757,20 +757,26 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionIDIDTerminalRuleCall_1_0 = (RuleCall)cConditionIDAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cCompositionTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cCompositionTypeCompositeConditionTypeEnumRuleCall_4_0 = (RuleCall)cCompositionTypeAssignment_4.eContents().get(0);
-		private final Keyword cQuestionMarkKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cTypeConditionTypeEnumRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final Assignment cComposedConditionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cComposedConditionsAttributeValueConditionParserRuleCall_4_0 = (RuleCall)cComposedConditionsAssignment_4.eContents().get(0);
+		private final Assignment cCompositionTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cCompositionTypeCompositeConditionTypeEnumRuleCall_5_0 = (RuleCall)cCompositionTypeAssignment_5.eContents().get(0);
+		private final Assignment cComposedConditionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cComposedConditionsAttributeValueConditionParserRuleCall_6_0 = (RuleCall)cComposedConditionsAssignment_6.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cQuestionMarkKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cTypeAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cTypeConditionTypeEnumRuleCall_9_0 = (RuleCall)cTypeAssignment_9.eContents().get(0);
 		
 		//CompositeCondition:
-		//	"composite-condition" conditionID=ID ":" "(" compositionType= // TODO add composedCondition
-		//	CompositeConditionType "?" type=ConditionType ")";
+		//	"composite-condition" conditionID=ID ":" "(" composedConditions+=AttributeValueCondition
+		//	compositionType=CompositeConditionType composedConditions+= // TODO add composedCondition
+		//	AttributeValueCondition ")" "?" type=ConditionType;
 		public ParserRule getRule() { return rule; }
 
-		//"composite-condition" conditionID=ID ":" "(" compositionType= // TODO add composedCondition
-		//CompositeConditionType "?" type=ConditionType ")"
+		//"composite-condition" conditionID=ID ":" "(" composedConditions+=AttributeValueCondition
+		//compositionType=CompositeConditionType composedConditions+= // TODO add composedCondition
+		//AttributeValueCondition ")" "?" type=ConditionType
 		public Group getGroup() { return cGroup; }
 
 		//"composite-condition"
@@ -788,45 +794,37 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
 
-		//compositionType= // TODO add composedCondition
+		//composedConditions+=AttributeValueCondition
+		public Assignment getComposedConditionsAssignment_4() { return cComposedConditionsAssignment_4; }
+
+		//AttributeValueCondition
+		public RuleCall getComposedConditionsAttributeValueConditionParserRuleCall_4_0() { return cComposedConditionsAttributeValueConditionParserRuleCall_4_0; }
+
+		//compositionType=CompositeConditionType
+		public Assignment getCompositionTypeAssignment_5() { return cCompositionTypeAssignment_5; }
+
 		//CompositeConditionType
-		public Assignment getCompositionTypeAssignment_4() { return cCompositionTypeAssignment_4; }
+		public RuleCall getCompositionTypeCompositeConditionTypeEnumRuleCall_5_0() { return cCompositionTypeCompositeConditionTypeEnumRuleCall_5_0; }
+
+		//composedConditions+= // TODO add composedCondition
+		//AttributeValueCondition
+		public Assignment getComposedConditionsAssignment_6() { return cComposedConditionsAssignment_6; }
 
 		//// TODO add composedCondition
-		//CompositeConditionType
-		public RuleCall getCompositionTypeCompositeConditionTypeEnumRuleCall_4_0() { return cCompositionTypeCompositeConditionTypeEnumRuleCall_4_0; }
-
-		//"?"
-		public Keyword getQuestionMarkKeyword_5() { return cQuestionMarkKeyword_5; }
-
-		//type=ConditionType
-		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
-
-		//ConditionType
-		public RuleCall getTypeConditionTypeEnumRuleCall_6_0() { return cTypeConditionTypeEnumRuleCall_6_0; }
+		//AttributeValueCondition
+		public RuleCall getComposedConditionsAttributeValueConditionParserRuleCall_6_0() { return cComposedConditionsAttributeValueConditionParserRuleCall_6_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
-	}
 
-	public class ConditionConnectorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConditionConnector");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAttributeValueConditionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cCompositeConditionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//ConditionConnector returns Condition:
-		//	AttributeValueCondition | CompositeCondition;
-		public ParserRule getRule() { return rule; }
+		//"?"
+		public Keyword getQuestionMarkKeyword_8() { return cQuestionMarkKeyword_8; }
 
-		//AttributeValueCondition | CompositeCondition
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//type=ConditionType
+		public Assignment getTypeAssignment_9() { return cTypeAssignment_9; }
 
-		//AttributeValueCondition
-		public RuleCall getAttributeValueConditionParserRuleCall_0() { return cAttributeValueConditionParserRuleCall_0; }
-
-		//CompositeCondition
-		public RuleCall getCompositeConditionParserRuleCall_1() { return cCompositeConditionParserRuleCall_1; }
+		//ConditionType
+		public RuleCall getTypeConditionTypeEnumRuleCall_9_0() { return cTypeConditionTypeEnumRuleCall_9_0; }
 	}
 
 	public class EIntElements extends AbstractParserRuleElementFinder {
@@ -939,22 +937,22 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAndAndKeyword_1_0 = (Keyword)cAndEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum CompositeConditionType:
-		//	Or | And;
+		//	Or="or" | And="and";
 		public EnumRule getRule() { return rule; }
 
-		//Or | And
+		//Or="or" | And="and"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Or
+		//Or="or"
 		public EnumLiteralDeclaration getOrEnumLiteralDeclaration_0() { return cOrEnumLiteralDeclaration_0; }
 
-		//"Or"
+		//"or"
 		public Keyword getOrOrKeyword_0_0() { return cOrOrKeyword_0_0; }
 
-		//And
+		//And="and"
 		public EnumLiteralDeclaration getAndEnumLiteralDeclaration_1() { return cAndEnumLiteralDeclaration_1; }
 
-		//"And"
+		//"and"
 		public Keyword getAndAndKeyword_1_0() { return cAndAndKeyword_1_0; }
 	}
 	
@@ -975,7 +973,6 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConditionElements pCondition;
 	private final AttributeValueConditionElements pAttributeValueCondition;
 	private final CompositeConditionElements pCompositeCondition;
-	private final ConditionConnectorElements pConditionConnector;
 	private final ConditionTypeElements unknownRuleConditionType;
 	private final CompositeConditionTypeElements unknownRuleCompositeConditionType;
 	private final EIntElements pEInt;
@@ -1007,7 +1004,6 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCondition = new ConditionElements();
 		this.pAttributeValueCondition = new AttributeValueConditionElements();
 		this.pCompositeCondition = new CompositeConditionElements();
-		this.pConditionConnector = new ConditionConnectorElements();
 		this.unknownRuleConditionType = new ConditionTypeElements();
 		this.unknownRuleCompositeConditionType = new CompositeConditionTypeElements();
 		this.pEInt = new EIntElements();
@@ -1063,7 +1059,7 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Page:
-	//	"page" title=STRING "{" (pageElements+=PageElement ("," pageElements+=PageElement)*)? condition=Condition? "}";
+	//	"page" title=STRING "{" (pageElements+=PageElement ("," pageElements+=PageElement)*)? "}" condition=Condition?;
 	public PageElements getPageAccess() {
 		return pPage;
 	}
@@ -1204,24 +1200,15 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CompositeCondition:
-	//	"composite-condition" conditionID=ID ":" "(" compositionType= // TODO add composedCondition
-	//	CompositeConditionType "?" type=ConditionType ")";
+	//	"composite-condition" conditionID=ID ":" "(" composedConditions+=AttributeValueCondition
+	//	compositionType=CompositeConditionType composedConditions+= // TODO add composedCondition
+	//	AttributeValueCondition ")" "?" type=ConditionType;
 	public CompositeConditionElements getCompositeConditionAccess() {
 		return pCompositeCondition;
 	}
 	
 	public ParserRule getCompositeConditionRule() {
 		return getCompositeConditionAccess().getRule();
-	}
-
-	//ConditionConnector returns Condition:
-	//	AttributeValueCondition | CompositeCondition;
-	public ConditionConnectorElements getConditionConnectorAccess() {
-		return pConditionConnector;
-	}
-	
-	public ParserRule getConditionConnectorRule() {
-		return getConditionConnectorAccess().getRule();
 	}
 
 	//enum ConditionType:
@@ -1235,7 +1222,7 @@ public class FormGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum CompositeConditionType:
-	//	Or | And;
+	//	Or="or" | And="and";
 	public CompositeConditionTypeElements getCompositeConditionTypeAccess() {
 		return unknownRuleCompositeConditionType;
 	}

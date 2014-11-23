@@ -302,29 +302,29 @@ rulePage returns [EObject current=null]
 	    }
 
 )
-))*)?(
+))*)?	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getPageAccess().getRightCurlyBracketKeyword_4());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPageAccess().getConditionConditionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getPageAccess().getConditionConditionParserRuleCall_5_0()); 
 	    }
-		lv_condition_6_0=ruleCondition		{
+		lv_condition_7_0=ruleCondition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPageRule());
 	        }
        		set(
        			$current, 
        			"condition",
-        		lv_condition_6_0, 
+        		lv_condition_7_0, 
         		"Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_7='}' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getPageAccess().getRightCurlyBracketKeyword_5());
-    }
-)
+)?)
 ;
 
 
@@ -1337,39 +1337,53 @@ ruleCompositeCondition returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getCompositionTypeCompositeConditionTypeEnumRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getComposedConditionsAttributeValueConditionParserRuleCall_4_0()); 
 	    }
-		lv_compositionType_4_0=ruleCompositeConditionType		{
+		lv_composedConditions_4_0=ruleAttributeValueCondition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCompositeConditionRule());
+	        }
+       		add(
+       			$current, 
+       			"composedConditions",
+        		lv_composedConditions_4_0, 
+        		"AttributeValueCondition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getCompositionTypeCompositeConditionTypeEnumRuleCall_5_0()); 
+	    }
+		lv_compositionType_5_0=ruleCompositeConditionType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCompositeConditionRule());
 	        }
        		set(
        			$current, 
        			"compositionType",
-        		lv_compositionType_4_0, 
+        		lv_compositionType_5_0, 
         		"CompositeConditionType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5='?' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getCompositeConditionAccess().getQuestionMarkKeyword_5());
-    }
-(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getTypeConditionTypeEnumRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getComposedConditionsAttributeValueConditionParserRuleCall_6_0()); 
 	    }
-		lv_type_6_0=ruleConditionType		{
+		lv_composedConditions_6_0=ruleAttributeValueCondition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCompositeConditionRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"type",
-        		lv_type_6_0, 
-        		"ConditionType");
+       			"composedConditions",
+        		lv_composedConditions_6_0, 
+        		"AttributeValueCondition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1378,10 +1392,30 @@ ruleCompositeCondition returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getCompositeConditionAccess().getRightParenthesisKeyword_7());
     }
+	otherlv_8='?' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getCompositeConditionAccess().getQuestionMarkKeyword_8());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getTypeConditionTypeEnumRuleCall_9_0()); 
+	    }
+		lv_type_9_0=ruleConditionType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCompositeConditionRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_9_0, 
+        		"ConditionType");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))
 ;
-
-
 
 
 
@@ -1432,13 +1466,13 @@ ruleConditionType returns [Enumerator current=null]
 ruleCompositeConditionType returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='Or' 
+((	enumLiteral_0='or' 
 	{
         $current = grammarAccess.getCompositeConditionTypeAccess().getOrEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_0, grammarAccess.getCompositeConditionTypeAccess().getOrEnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='And' 
+    |(	enumLiteral_1='and' 
 	{
         $current = grammarAccess.getCompositeConditionTypeAccess().getAndEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_1, grammarAccess.getCompositeConditionTypeAccess().getAndEnumLiteralDeclaration_1()); 

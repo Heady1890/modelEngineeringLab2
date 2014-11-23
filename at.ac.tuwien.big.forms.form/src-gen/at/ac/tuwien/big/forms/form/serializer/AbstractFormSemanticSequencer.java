@@ -39,8 +39,7 @@ public abstract class AbstractFormSemanticSequencer extends AbstractDelegatingSe
 		if(semanticObject.eClass().getEPackage() == FormsPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case FormsPackage.ATTRIBUTE_VALUE_CONDITION:
 				if(context == grammarAccess.getAttributeValueConditionRule() ||
-				   context == grammarAccess.getConditionRule() ||
-				   context == grammarAccess.getConditionConnectorRule()) {
+				   context == grammarAccess.getConditionRule()) {
 					sequence_AttributeValueCondition(context, (AttributeValueCondition) semanticObject); 
 					return; 
 				}
@@ -53,8 +52,7 @@ public abstract class AbstractFormSemanticSequencer extends AbstractDelegatingSe
 				else break;
 			case FormsPackage.COMPOSITE_CONDITION:
 				if(context == grammarAccess.getCompositeConditionRule() ||
-				   context == grammarAccess.getConditionRule() ||
-				   context == grammarAccess.getConditionConnectorRule()) {
+				   context == grammarAccess.getConditionRule()) {
 					sequence_CompositeCondition(context, (CompositeCondition) semanticObject); 
 					return; 
 				}
@@ -305,7 +303,13 @@ public abstract class AbstractFormSemanticSequencer extends AbstractDelegatingSe
 	
 	/**
 	 * Constraint:
-	 *     (conditionID=ID compositionType=CompositeConditionType type=ConditionType)
+	 *     (
+	 *         conditionID=ID 
+	 *         composedConditions+=AttributeValueCondition 
+	 *         compositionType=CompositeConditionType 
+	 *         composedConditions+=AttributeValueCondition 
+	 *         type=ConditionType
+	 *     )
 	 */
 	protected void sequence_CompositeCondition(EObject context, CompositeCondition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -12,9 +12,13 @@ import org.eclipse.xtext.scoping.Scopes;
 
 import at.ac.tuwien.big.forms.Attribute;
 import at.ac.tuwien.big.forms.AttributePageElement;
+import at.ac.tuwien.big.forms.AttributeValueCondition;
 import at.ac.tuwien.big.forms.Column;
+import at.ac.tuwien.big.forms.Condition;
 import at.ac.tuwien.big.forms.Entity;
 import at.ac.tuwien.big.forms.Form;
+import at.ac.tuwien.big.forms.Page;
+import at.ac.tuwien.big.forms.PageElement;
 import at.ac.tuwien.big.forms.Relationship;
 import at.ac.tuwien.big.forms.RelationshipPageElement;
 import at.ac.tuwien.big.forms.Table;
@@ -72,6 +76,41 @@ public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 		
 		return Scopes.scopeFor(relationshipsInEntity);
 	}	
+	
+	IScope scope_AttributeValueCondition_attribute(AttributeValueCondition ctx_attAttributeValueCondition, EReference ref) {
+		EList<Attribute> attributes = new BasicEList<Attribute>();
+		// traverse back to Form to get corresponding Entity
+		EObject parent = ctx_attAttributeValueCondition.eContainer();
+		EObject pageOrPageElement = parent;
+		// Condition -> ... -> Condtion -> PageElement or Page
+		if (parent instanceof Condition) {
+			while (parent instanceof Condition)
+				parent = parent.eContainer();
+			pageOrPageElement = parent;
+		}
+		
+		Page page = null;
+		
+		// PageElement -> Page -> Form
+		if (pageOrPageElement instanceof PageElement)
+			page = (Page) ((PageElement) pageOrPageElement).eContainer();
+		// Page -> Form
+		else if (pageOrPageElement instanceof Page)
+			page = (Page) pageOrPageElement;
+		
+		
+		Form form = (Form) page.eContainer();
+		Entity entity = form.getEntity();
+		
+		// filter out the all Attributes from the Entity's Features and its super Entities
+		while (entity != null) {
+			attributes.addAll(filter(entity.getFeatures(), Attribute.class));
+			// look for super types
+			entity = entity.getSuperType();
+		}
+		
+		return Scopes.scopeFor(attributes);
+	}
 	
 	/**
 	 * Checks if the elements of the delivered list are from a certain EClass and return a list of them. 

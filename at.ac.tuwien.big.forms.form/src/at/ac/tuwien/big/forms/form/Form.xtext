@@ -21,8 +21,8 @@ Page:
 		( 	
 			pageElements += PageElement
 			(',' pageElements += PageElement)*
-		)? (condition = Condition)?
-	'}'
+		)? 
+	'}' (condition = Condition)?
 ;
 
 PageElement:
@@ -86,14 +86,9 @@ AttributeValueCondition:
 CompositeCondition:
 	'composite-condition' conditionID = ID ':' 
 		'(' 
-			compositionType = CompositeConditionType	// TODO add composedCondition
-			'?' type = ConditionType
-		')' 
+		 composedConditions += AttributeValueCondition compositionType = CompositeConditionType	composedConditions+=AttributeValueCondition// TODO add composedCondition
+		')' '?' type = ConditionType
 		
-;
-
-ConditionConnector returns Condition:
-	(AttributeValueCondition | CompositeCondition)
 ;
 
 enum ConditionType:
@@ -101,7 +96,7 @@ enum ConditionType:
 ;
 
 enum CompositeConditionType:
-	Or | And
+	Or='or' | And='and'
 ;
 
 EInt returns ecore::EInt:
