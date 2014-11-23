@@ -12,15 +12,18 @@ import org.eclipse.xtext.scoping.Scopes;
 
 import at.ac.tuwien.big.forms.Attribute;
 import at.ac.tuwien.big.forms.AttributePageElement;
+import at.ac.tuwien.big.forms.AttributeType;
 import at.ac.tuwien.big.forms.AttributeValueCondition;
 import at.ac.tuwien.big.forms.Column;
 import at.ac.tuwien.big.forms.Condition;
 import at.ac.tuwien.big.forms.Entity;
 import at.ac.tuwien.big.forms.Form;
+import at.ac.tuwien.big.forms.FormModel;
 import at.ac.tuwien.big.forms.Page;
 import at.ac.tuwien.big.forms.PageElement;
 import at.ac.tuwien.big.forms.Relationship;
 import at.ac.tuwien.big.forms.RelationshipPageElement;
+import at.ac.tuwien.big.forms.SelectionField;
 import at.ac.tuwien.big.forms.Table;
 
 
@@ -32,9 +35,33 @@ import at.ac.tuwien.big.forms.Table;
  *
  */
 public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
+//	IScope scope_SelectionField_attribute(SelectionField ctx_selectionField, EReference ref) {
+//		EList<Attribute> attributes = new BasicEList<Attribute>();
+//		EList<Attribute> filteredAttributes = new BasicEList<Attribute>();
+//		
+//		// traverse back to Form to get corresponding Entity (PageElement -> Page -> Form)
+//		Form form = (Form) ctx_selectionField.eContainer().eContainer();
+//		Entity entity = form.getEntity();
+//		
+//		
+//		// filter out the all Attributes from the Entity's Features and its super Entities
+//		while (entity != null) {
+//			attributes.addAll(filter(entity.getFeatures(), Attribute.class));
+//			// only boolean and enum type allowed
+//			for (Attribute attribute : attributes) {
+//				if (attribute.getType() == AttributeType.BOOLEAN || 
+//						attribute.getType() == AttributeType.NONE)
+//					filteredAttributes.add(attribute);
+//			}
+//			// look for super types
+//			entity = entity.getSuperType();
+//		}
+//		return Scopes.scopeFor(filteredAttributes);
+//	}
 	
 	IScope scope_AttributePageElement_attribute(AttributePageElement ctx_attributePageElement, EReference ref) {
 		EList<Attribute> attributes = new BasicEList<Attribute>();
+		EList<Attribute> filteredAttributes = new BasicEList<Attribute>();
 		Entity entity = null;
 		
 		// Column
@@ -54,6 +81,17 @@ public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 		// filter out the all Attributes from the Entity's Features and its super Entities
 		while (entity != null) {
 			attributes.addAll(filter(entity.getFeatures(), Attribute.class));
+			
+			// Selection field only allows attribute types of boolean and enum (= None)
+			if (ctx_attributePageElement instanceof SelectionField) {
+				for (Attribute attribute : attributes) {
+					if (attribute.getType() == AttributeType.BOOLEAN || 
+							attribute.getType() == AttributeType.NONE)
+						filteredAttributes.add(attribute);
+				}
+				attributes = filteredAttributes;
+			}
+			
 			// look for super types
 			entity = entity.getSuperType();
 		}
@@ -76,6 +114,23 @@ public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 		
 		return Scopes.scopeFor(relationshipsInEntity);
 	}	
+	
+	IScope scope_RelationshipPageElement_editingForm(RelationshipPageElement ctx_relationshipPageElement, EReference ref) {
+		EList<Form> formsReferToTargetEntity = new BasicEList<Form>();
+		Relationship relationship = ctx_relationshipPageElement.getRelationship();
+		Entity targetEntity = relationship.getTarget();
+		// get all forms from model
+		FormModel formModel = (FormModel) ctx_relationshipPageElement.eContainer().eContainer().eContainer();
+		EList<Form> allForms = formModel.getForms();
+		
+		for (Form form : allForms) {
+			if (form.getEntity().equals(targetEntity)) {
+				formsReferToTargetEntity.add(form);
+			}
+		}
+		
+		return Scopes.scopeFor(formsReferToTargetEntity);
+	}
 	
 	IScope scope_AttributeValueCondition_attribute(AttributeValueCondition ctx_attAttributeValueCondition, EReference ref) {
 		EList<Attribute> attributes = new BasicEList<Attribute>();
@@ -111,6 +166,8 @@ public class FormScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 		
 		return Scopes.scopeFor(attributes);
 	}
+	
+	
 	
 	/**
 	 * Checks if the elements of the delivered list are from a certain EClass and return a list of them. 
